@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Documentation</title>
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Discord Bot Maker</h1>
+            <p class="description">A Portfolio for Customers to look at my custom Bot Maker by Tamino1230.<br>Not Affiliated with Discord!</p>
+        </header>
+
+        <nav class="table-of-contents">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#setup">Setup of your Bot</a></li>
+                <li><a href="#customization">Customization</a></li>
+                <li><a href="#usage">Usage</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#examples">Examples</a></li>
+                <li><a href="#bot-maker">How does the Bot Maker work?</a></li>
+                <li><a href="#need-help">I need help!</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="setup">
+                <h2>Setup of your Bot</h2>
+                <p>This is what your will get when getting the bot</p>
+                <pre><code>
+bot-root/
+├── cogs/
+│   ├── admin.py
+│   ├── fun.py
+│   ├── moderation.py
+│   ├── anti_scam.py
+│   ├── reactions.py
+│   └── ...
+├── core/
+│   ├── bot.py
+├── utils/
+│   ├── console.py
+│   ├── json_utils.py
+│   └── logger.py
+├── data/
+│   └── json and python files with info
+├── logs/
+│   ├── chat_logs.txt
+│   ├── server_logs.txt
+│   └── ...
+├── transcripts/
+│   └── ticket transcripts
+├── README.md
+├── config.py
+├── main.py                                 <- main file to run the bot
+├── requirements.txt
+├── .env
+└── .gitignore
+
+                </code></pre>
+                <p>Steps to set up:</p>
+                <ol>
+                    <li>Clone the your bot:</li>
+                    <pre><code>git clone https://github.com/Tamino1230/customer-discord-bot.git</code></pre>
+                    <li>Navigate to the project directory: <code>cd discord-bot</code></li>
+                    <li>Install dependencies:</li>
+                    <pre><code>pip install -r requirements.txt</code></pre>
+                    <li>Set up your environment variables in the <code>.env</code> file.</li>
+                    <li>Set up your bot in the Discord Developer Portal and get your bot token.</li>
+                    <li>Configure the bot by editing the <code>config.py</code> file.</li>
+                    <li>Run the bot:  (can depend)</li>
+                    <pre><code>python main.py</code></pre>
+                    <li>Invite the bot to your server using the OAuth2 URL generated in the Discord Developer Portal with Admin permissions.</li>
+                </ol>
+            </section>
+
+            <section id="customization">
+                <h2>Customization</h2>
+                <p>You can customize the bot by modifying the configuration files in the <code>config.py</code> file. You can change settings like prefix, logging channels, and more.</p>
+                <p>For example, to change the command prefix, modify the <code>prefix</code> variable in the <code>config.py</code> file:</p>
+                <pre><code>prefix = "!"
+#- Status
+STATUS = 'watching' #* playing / watching / listening / stream
+ACTIVITY = 'Tamino1230 - Bot'
+STREAM_URL = "https://www.twitch.tv/tamino001"
+
+DEFAULT_IMAGE = "https://i.imgur.com/S34FvgK.jpeg"
+
+#- Autoroles
+AUTOROLES = [1337788377822400673]
+ROLE_ID_TO_ADD = 1337788377822400673
+TEAM_PANEL_MESSAGE_ID = 1337804215896117268
+TEAM_PANEL_ROLES = [1337788429026590853, 1337798434396049560, 1337798478285377577, 1337798510766198907, 1337788650292776981]
+
+#- Channel Settings
+WELCOME_CHANNEL = 1337776597599780905
+LOG_CHANNEL = 1337779589488971917
+
+TICKET_CHANNEL = 1337779916904599623
+TICKET_CATEGORY_ID = 1337790110678388858
+TEAM_PANEL_CHANNEL = 1337804040452702319
+
+#- Moderation settings
+ADMIN_ROLES = [1337788429026590853, 1337798434396049560, 1337798478285377577, 1337798510766198907]
+PROTECTED_USERS = [702893526303637604, 1337787532665946186]
+
+...</code></pre>
+            <br><br>
+            <section id="usage">
+                <h2>Usage</h2>
+                <p>Here's a quick example of how to use this project:</p>
+                <pre><code>!help</code></pre>
+                <p>Response:</p>
+                <img src="src/assets/help_command.png" height="500px"></img>
+            </section>
+
+            <section id="features">
+                <h2>Features</h2>
+                <ul class="feature-list">
+                    <li>🛡️ Moderation
+                        <ul>
+                            <li>Ban/Kick/Timeout management</li>
+                            <li>Warning system with history tracking</li>
+                            <li>Mod notes for user tracking</li>
+                            <li>Report system for users</li>
+                            <li>Advanced logging system for all server events</li>
+                        </ul>
+                    </li>
+                    <li>🎫 Ticket System
+                        <ul>
+                            <li>Customizable ticket creation</li>
+                            <li>Auto-role assignment for staff</li>
+                            <li>Organized ticket categories</li>
+                            <li>Ticket transcripts and logging</li>
+                        </ul>
+                    </li>
+                    <li>👋 Welcome System
+                        <ul>
+                            <li>Customizable welcome messages</li>
+                            <li>Automatic role assignment</li>
+                            <li>Rule verification system</li>
+                            <li>Custom welcome images</li>
+                        </ul>
+                    </li>
+                    <li>⭐ XP & Levels
+                        <ul>
+                            <li>User activity tracking</li>
+                            <li>Streak system for daily engagement</li>
+                            <li>XP rewards for active users</li>
+                            <li>Customizable level roles</li>
+                        </ul>
+                    </li>
+                    <li>🎮 Fun & Games
+                        <ul>
+                            <li>Various fun commands</li>
+                            <li>Cookie reactions</li>
+                            <li>Random color generator</li>
+                            <li>UwU text converter</li>
+                            <li>Flirt command</li>
+                            <li>Dice rolling system</li>
+                        </ul>
+                    </li>
+                    <li>🔧 Utility
+                        <ul>
+                            <li>Server information</li>
+                            <li>User information</li>
+                            <li>Help menu system</li>
+                            <li>Custom embed messages</li>
+                            <li>Team panel with online status</li>
+                        </ul>
+                    </li>
+                    <li>📊 Logging
+                        <ul>
+                            <li>Message logging (edit/delete)</li>
+                            <li>Member join/leave tracking</li>
+                            <li>Role changes</li>
+                            <li>Channel modifications</li>
+                            <li>Moderation actions</li>
+                        </ul>
+                    </li>
+                    <li>🎭 Reaction Roles
+                        <ul>
+                            <li>Custom reaction role setup</li>
+                            <li>Multiple role support</li>
+                            <li>Auto-role removal</li>
+                            <li>Role persistence</li>
+                        </ul>
+                    </li>
+                    <li>🐛 Anti-Scam Detection
+                        <ul>
+                            <li>Detects known scam websites</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="examples">
+                <h2>Examples</h2>
+                <p>Here are some examples of commands and their outputs:</p>
+                <div class="command-example">
+                    <h3>Moderation Command</h3>
+                    <p>Event: <code>Scam Link in Message</code></p>
+                    <p>Logged Information:</p>
+                    <img src="src/assets/message_scam_detected.png" alt="Ban Command Example" height="300px">
+                </div>
+                <br>
+                <div class="command-example">
+                    <h3>Check_warns Command</h3>
+                    <p>Command: <code>!check_warns <@user></code></p>
+                    <p>Response:</p>
+                    <img src="src/assets/check_warns.png" alt="Check_warns Command Example" height="300px">
+                </div>
+                <br>
+                <div class="command-example">
+                    <h3>Ticket Setup Command</h3>
+                    <p>Command: <code>!setup_tickets</code></p>
+                    <p>Response:</p>
+                    <img src="src/assets//ticket.png" alt="Server Ticket Command Example" height="300px">
+                </div>
+                <br>
+                <div class="command-example">
+                    <h3>Logging Example</h3>
+                    <p>Event: <code>Message Deleted</code></p>
+                    <p>Logged Information:</p>
+                    <img src="src/assets/deleted_message_logging.png" alt="Message Deleted Example" height="300px">
+                </div>
+                <br>
+                <div class="command-example">
+                    <h3>Logging Example</h3>
+                    <p>Event: <code>Message Send</code></p>
+                    <p>Logged Information:</p>
+                    <img src="src/assets/new_message_logging.png" alt="Message Deleted Example" height="300px">
+                </div>
+                <br>
+                <div class="command-example">
+                    <h3>Logging Example</h3>
+                    <p>Event: <code>Message Edit</code></p>
+                    <p>Logged Information:</p>
+                    <img src="src/assets/edit_message_logging.png" alt="Message Deleted Example" height="300px">
+                </div>
+                <br>
+                <div class="command-example">
+                    <h3>Logging Example</h3>
+                    <p>Event: <code>Member Joined</code></p>
+                    <p>Logged Information:</p>
+                    <img src="src/assets/member_joined_logging.png" alt="Message Deleted Example" height="200px">
+                </div>
+                <br>
+                <div class="command-example">
+                    <h3>Reaction Role Command</h3>
+                    <p>Command: <code>!reaction_role_add channelid "titel" "description something" 💀 @Admin 😼 @Member</code></p>
+                    <p>Response:</p>
+                    <img src="src/assets/reaction_role_system.png" alt="Reaction Role Command Example" height="300px">
+                </div>
+                <br>
+                <div class="command-example">
+                    <h3>Team Panel Command</h3>
+                    <p>Event: <code>On Bot Setup / every 5 Min updating</code></p>
+                    <p>Output:</p>
+                    <img src="src/assets/team_pannel.png" alt="Team Panel Command Example" height="300px">
+                </div>
+                <br>
+                <div class="command-example">
+                    <h3>Ticket Command</h3>
+                    <p>Command: <code>!setup_ticket</code></p>
+                    <p>Response:</p>
+                    <img src="src/assets/ticket.png" alt="Ticket Command Example" height="300px">
+                </div>
+                <br>
+                <div class="command-example">
+                    <h3>Welcome Event</h3>
+                    <p>Event: <code>Member join</code></p>
+                    <p>Response:</p>
+                    <img src="src/assets/welcome.png" alt="Welcome Command Example" height="300px">
+                </div>
+            </section>
+
+            <section id="bot-maker">
+                
+                <h2>How does the Bot Maker work?</h2>
+                <p>The Bot Maker is Completly made by me and this is how i use it:</p>
+                <ol>
+                    <li>First i choose the <code>Cogs</code> that you want</li>
+                    <img src="src/assets/cogs_selection.png" height="300px" alt="cogs_selection Preview" height="500px">
+                    <li>Then i enter the name of the customer.</li>
+                    <li>Then i let the program generate the bot files.</li>
+                    <li>Click on "Generate Bot" to create your custom bot (including the cogs which i cant show).</li>
+                    <img src="src/assets/copiy.png" height="300px" alt="bot_maker Preview" height="500px">
+                    <li>Then i Zip the File and send it to you.</li>
+
+                </ol>
+            <br><br>
+            <section id="need-help">
+                <h2>I need help!</h2>
+                <p>If you got the Bot Files from me and you need help. I will setup the Bot for you / help you without any cost OR if you just have questions.</p>
+                <p id="contact">Just join my Discord Server: <a href="https://discord.gg/8b8R9qCBF8" target="_blank">Discord Server Link</a> and open a Ticket in the Tickets Channel (Only works if my Bot is Online) or contact me directly: <a href="https://discord.com/users/702893526303637604" target="_blank">Tamino1230</a></p>
+            </section>
+        </main>
+
+        <footer>
+            <p>Made with ❤️ by <a href="https://github.com/Tamino1230" target="_blank">Tamino1230</a></p>
+        </footer>
+    </div>
+    <script src="src/script.js"></script>
+</body>
+</html>
