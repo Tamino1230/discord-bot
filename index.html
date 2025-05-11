@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Documentation</title>
+    <title>Discord Bot Maker Preview for Customers</title>
     <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Discord Bot Maker</h1>
-            <p class="description">A Portfolio for Customers to look at my custom Bot Maker by Tamino1230.<br>Not Affiliated with Discord!</p>
+            <h1>Discord Bot Custom</h1>
+            <p class="description">A Portfolio for Customers to look at my custom Bot Maker by Tamino1230.<br>This Bot is Programmed in <code>Python 3.12.6</code><br>Not Affiliated with Discord!</p>
         </header>
 
         <nav class="table-of-contents">
@@ -20,6 +20,8 @@
                 <li><a href="#customization">Customization</a></li>
                 <li><a href="#usage">Usage</a></li>
                 <li><a href="#features">Features</a></li>
+                <li><a href="#ordering">Your Order</a></li>
+                <li><a href="#anti-scam">How does the Anti-Scam work</a></li>
                 <li><a href="#examples">Examples</a></li>
                 <li><a href="#bot-maker">How does the Bot Maker work?</a></li>
                 <li><a href="#need-help">I need help!</a></li>
@@ -120,94 +122,292 @@ PROTECTED_USERS = [702893526303637604, 1337787532665946186]
 
             <section id="features">
                 <h2>Features</h2>
+                <h4>*: Optional</h4>
                 <ul class="feature-list">
-                    <li>🛡️ Moderation
+                    <li class="list"><strong>🛡️ Moderation</strong>
                         <ul>
-                            <li>Ban/Kick/Timeout management</li>
-                            <li>Warning system with history tracking</li>
-                            <li>Mod notes for user tracking</li>
-                            <li>Report system for users</li>
-                            <li>Advanced logging system for all server events</li>
+                            <li>Commands:</li>
+                            <ul class="command-list">
+                                <li>ban <@user> <@reason*> <@delete_message_option*> <strong>Admin only</strong></li>
+                                <li>kick <@user> <@reason*> <strong>Admin only</strong></li>
+                                <li>timeout <@user> <@seconds> <@reason*> <strong>Admin only</strong></li>
+                                <li>warn <@user> <@reason*> <strong>Admin only</strong></li>
+                                <li>check_warns <@user> <strong>Admin only</strong></li>
+                                <li>remove_warns <@user> <@warn_number> <strong>Admin only</strong></li>
+                                <li>check_timeout <@user> <strong>Admin only</strong></li>
+                                <li>remove_timeout <@user> <strong>Admin only</strong></li>
+                                <li>modnote <@user> <@Notes> <strong>Admin only</strong></li>
+                                <li>view_modnotes <@user> <strong>Admin only</strong></li>
+                                <li>remove_modnote <@user> <@note_number> <strong>Admin only</strong></li>
+                                <li>report <@user> <@reason></li>
+                                <li>suggest <@user> <@suggestion></li>
+                            </ul>
+                            <li>Functions:</li>
+                            <ul class="command-list">
+                                <li>load_warnings</li>
+                                <li>save_warnings</li>
+                                <li>load_modnotes</li>
+                                <li>save_modnotes</li>
+                            </ul>
                         </ul>
                     </li>
-                    <li>🎫 Ticket System
+                    <li class="list"><strong>🎫 Ticket System</strong>
                         <ul>
-                            <li>Customizable ticket creation</li>
-                            <li>Auto-role assignment for staff</li>
-                            <li>Organized ticket categories</li>
-                            <li>Ticket transcripts and logging</li>
+                            <li>Commands:</li>
+                            <ul class="command-list">
+                                <li>setup_tickets <strong>Admin only</strong></li>
+                                <li>ticket_close <strong>Admin only</strong></li>
+                            </ul>
+                            <li>Functions:</li>
+                            <ul class="command-list">
+                                <li>create_ticket_channel</li>
+                                <li>save_ticket_info</li>
+                                <li>load_modnotes</li>
+                                <li>save_modnotes</li>
+                            </ul>
+                            <li>Events:</li>
+                            <ul class="command-list">
+                                <li>on_raw_reaction_add</li>
+                            </ul>
                         </ul>
                     </li>
-                    <li>👋 Welcome System
+                    <li class="list"><strong>👋 Welcome System</strong>
                         <ul>
-                            <li>Customizable welcome messages</li>
-                            <li>Automatic role assignment</li>
-                            <li>Rule verification system</li>
-                            <li>Custom welcome images</li>
+                            <li>Commands:</li>
+                            <ul class="command-list">
+                                <li>test_welcome <strong>Admin only</strong></li>
+                            </ul>
+                            <li>Events:</li>
+                            <ul class="command-list">
+                                <li>on_member_join</li>
+                            </ul>
                         </ul>
                     </li>
-                    <li>⭐ XP & Levels
+                    <li class="list"><strong>⭐ XP & Levels</strong>
                         <ul>
-                            <li>User activity tracking</li>
-                            <li>Streak system for daily engagement</li>
-                            <li>XP rewards for active users</li>
-                            <li>Customizable level roles</li>
+                            <li>Commands:</li>
+                            <ul class="command-list">
+                                <li>xp <@user*></li>
+                                <li>level/lvl <@user*></li>
+                                <li>loaderboard/lb/rank</li>
+                                <li>need_xp <@user*></li>
+                            </ul>
+                            <li>Functions:</li>
+                            <ul class="command-list">
+                                <li>load_streak_data</li>
+                                <li>save_streak_data</li>
+                                <li>calculate_level</li>
+                                <li>xp_for_next_level</li>
+                                <li>add_xp</li>
+                                <li>before_give_xp</li>
+                                <li>cog_unload</li>
+                            </ul>
+                            <li>Events:</li>
+                            <ul class="command-list">
+                                <li>on_message</li>
+                            </ul>
+                            <li>Loops:</li>
+                            <ul class="command-list">
+                                <li>give_xp_to_active_users / every 1 hour</li>
+                            </ul>
                         </ul>
                     </li>
-                    <li>🎮 Fun & Games
+                    <li class="list"><strong>🎮 Fun & Games</strong>
                         <ul>
-                            <li>Various fun commands</li>
-                            <li>Cookie reactions</li>
-                            <li>Random color generator</li>
-                            <li>UwU text converter</li>
-                            <li>Flirt command</li>
-                            <li>Dice rolling system</li>
+                            <li>Commands:</li>
+                            <ul class="command-list">
+                                <li>roll</li>
+                                <li>cookie</li>
+                                <li>flirt <@user></li>
+                                <li>uwuify <@text></li>
+                                <li>usefull</li>
+                                <li>water</li>
+                                <li>randomcolor</li>
+                                <li>nuhuhh <@user></li>
+                                <li>votekick <@user></li>
+                                <li>randomlove</li>
+                                <li>image cat/dog/meme/fox</li>
+                                <li>russianroulett</li>
+                                <li>simpcheck <@user></li>
+                                <li>hack <@user></li>
+                                <li>eightball <@question></li>
+                                <li>yeet <@user></li>
+                            </ul>
+                            <li>Functions:</li>
+                            <ul class="command-list">
+                                <li>cookie</li>
+                            </ul>
+                            <li>Events:</li>
+                            <ul class="command-list">
+                                <li>on_message</li>
+                            </ul>
                         </ul>
                     </li>
-                    <li>🔧 Utility
+                    <li class="list"><strong>🔧 Utility</strong>
                         <ul>
-                            <li>Server information</li>
-                            <li>User information</li>
-                            <li>Help menu system</li>
-                            <li>Custom embed messages</li>
-                            <li>Team panel with online status</li>
+                            <li>Commands:</li>
+                            <ul class="command-list">
+                                <li>serverinfo</li>
+                                <li>help</li>
+                                <li>serverage</li>
+                            </ul>
+                            <li>Functions:</li>
+                            <ul class="command-list">
+                                <li>prev_page</li>
+                                <li>next_page</li>
+                            </ul>
                         </ul>
                     </li>
-                    <li>📊 Logging
+                    <li class="list"><strong>📊 Logging</strong>
                         <ul>
-                            <li>Message logging (edit/delete)</li>
-                            <li>Member join/leave tracking</li>
-                            <li>Role changes</li>
-                            <li>Channel modifications</li>
-                            <li>Moderation actions</li>
+                            <li>Functions:</li>
+                            <ul class="command-list">
+                                <li>generate_team_panel_embed_with_direct_check</li>
+                                <li>before_update_team_panel</li>
+                            </ul>
+                            <li>Events:</li>
+                            <ul class="command-list">
+                                <li>on_message</li>
+                                <li>on_message_delete</li>
+                                <li>on_message_edit</li>
+                                <li>on_member_join</li>
+                                <li>on_member_remove</li>
+                                <li>on_member_update</li>
+                                <li>on_guild_channel_create</li>
+                                <li>on_guild_channel_delete</li>
+                                <li>on_guild_channel_update</li>
+                                <li>on_member_ban</li>
+                                <lI>on_member_unban</lI>
+                                <li>on_member_kick</li>
+                            </ul>
+                            <li>Loops:</li>
+                            <ul class="command-list">
+                                <li>update_team_panel / every 1 minute</li>
+                            </ul>
                         </ul>
                     </li>
-                    <li>🎭 Reaction Roles
+                    <li class="list"><strong>🎭 Reaction Roles</strong>
                         <ul>
-                            <li>Custom reaction role setup</li>
-                            <li>Multiple role support</li>
-                            <li>Auto-role removal</li>
-                            <li>Role persistence</li>
+                            <li>Commands:</li>
+                            <ul class="command-list">
+                                <li>reaction_role_add <@channel_id> <@"title"> <@"description"> <strong>Admin only</strong></li>
+                            </ul>
+                            <li>Events:</li>
+                            <ul class="command-list">
+                                <li>on_raw_reaction_add</li>
+                                <li>on_raw_reaction_remove</li>
+                            </ul>
                         </ul>
                     </li>
-                    <li>🐛 Anti-Scam Detection
+                    <li class="list"><strong>🐛 Anti-Scam Detection</strong>
                         <ul>
-                            <li>Detects known scam websites</li>
+                            <li>Commands:</li>
+                            <ul class="command-list">
+                                <li>refresh_scam_list <strong>Only server owner</strong></li>
+                            </ul>
+                            <li>Functions:</li>
+                            <ul class="command-list">
+                                <li>update_scam_list</li>
+                            </ul>
+                            <li>Events:</li>
+                            <ul class="command-list">
+                                <li>on_ready</li>
+                                <li>on_message</li>
+                            </ul>
+                        </ul>
+                    </li>
+                    <li class="list"><strong>🐛 Admin / Teststuff</strong>
+                        <ul>
+                            <li>Commands:</li>
+                            <ul class="command-list">
+                                <li>say <strong>Admin only</strong></li>
+                                <li>ping</li>
+                                <li>server</li>
+                                <li>user</li>
+                            </ul>
+                            <li>Functions:</li>
+                            <ul class="command-list">
+                                <li>update_scam_list</li>
+                            </ul>
+                            <li>Events:</li>
+                            <ul class="command-list">
+                                <li>on_ready</li>
+                                <li>on_message</li>
+                            </ul>
+                        </ul>
+                    </li>
+                    <li class="list"><strong>🐛 Games</strong>
+                        <ul>
+                            <li>Commands:</li>
+                            <ul class="command-list">
+                                <li>hangman</li>
+                                <li>news_game</li>
+                            </ul>
+                            <li>Functions:</li>
+                            <ul class="command-list">
+                                <li>interaction_check</li>
+                                <li>on_timeout</li>
+                                <li>display_word</li>
+                                <li>display_guessed_letters</li>
+                                <li>update_message</li>
+                                <li>start</li>
+                                <li>gues_letter</li>
+                                <li>on_submit</li>
+                                <li>real_button</li>
+                                <li>fake_button</li>
+                                <li>add_headline_button</li>
+                                <li>check_answer</li>
+                            </ul>
+                            <li>Events:</li>
+                            <ul class="command-list">
+                                <li>on_ready</li>
+                                <li>on_message</li>
+                            </ul>
                         </ul>
                     </li>
                 </ul>
+            </section>
+            
+            <section id="ordering">
+                <h2>Ordering Your Custom Bot</h2>
+                <p>Interested in getting your own custom Discord bot? Here's how you can choose the features you need:</p>
+                <div class="ordering-section">
+                    <div class="feature-category">
+                        <h3>Needed Features</h3>
+                        <p><strong>🛡️ Moderation</strong></p>
+                        <p><strong>📊 Logging</strong></p>
+                        <p><strong>👋 Welcome System</strong></p>
+                        <p><strong>🔧 Utility</strong></p>
+                        <p><strong>🐛 Admin / Teststuff</strong></p>
+                    </div>
+                    <div class="feature-category">
+                        <h3>Optional Features</h3>
+                        <p><strong>🎫 Ticket System</strong></p>
+                        <p><strong>⭐ XP & Levels</strong></p>
+                        <p><strong>🎮 Fun & Games</strong></p>
+                        <p><strong>🎭 Reaction Roles</strong></p>
+                        <p><strong>🐛 Anti-Scam Detection</strong></p>
+                        <p><strong>🐛 Games</strong></p>
+                    </div>
+                    <div class="contact-info">
+                        <p>Contact me via Discord: <a href="https://discord.com/users/702893526303637604" target="_blank">Tamino1230</a> or join my <a href="https://discord.gg/8b8R9qCBF8" target="_blank">Discord Server</a> to discuss your requirements.</p>
+                        <p>Once we finalize the features, I will provide you with Guide from me in a call and . You will receive your bot files, along with instructions for setup and usage.</p>
+                        <p>Feel free to reach out if you have any questions or need further assistance!</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="anti-scam">
+                <h2>How does the Anti Scam work?</h2>
+                <p>The Anti-Scam works by going through a list of 35 thousand known scamlinks</p>
+                <p>And if one gets detected, the message gets deleted and reportet:</p>
+                <p>The Scamlist is by <a href="https://github.com/Discord-AntiScam/scam-links"><code>Discord-AntiScam on Github</code></a></p>
+                <img src="src/assets/message_scam_detected.png" alt="Scam Detection Example" height="300px">
             </section>
 
             <section id="examples">
                 <h2>Examples</h2>
                 <p>Here are some examples of commands and their outputs:</p>
-                <div class="command-example">
-                    <h3>Moderation Command</h3>
-                    <p>Event: <code>Scam Link in Message</code></p>
-                    <p>Logged Information:</p>
-                    <img src="src/assets/message_scam_detected.png" alt="Ban Command Example" height="300px">
-                </div>
-                <br>
                 <div class="command-example">
                     <h3>Check_warns Command</h3>
                     <p>Command: <code>!check_warns <@user></code></p>
