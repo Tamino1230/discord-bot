@@ -23,6 +23,8 @@
                 <li><a href="#ordering">Your Order</a></li>
                 <li><a href="#anti-scam">How does the Anti-Scam work</a></li>
                 <li><a href="#examples">Examples</a></li>
+                <li><a href="#active-developer-badge">Developer Badge</a></li>
+                <li><a href="#slashcommands">Slash Commands</a></li>
                 <li><a href="#bot-maker">How does the Bot Maker work?</a></li>
                 <li><a href="#need-help">I need help!</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -115,6 +117,9 @@ PROTECTED_USERS = [702893526303637604, 1337787532665946186]
             <section id="usage">
                 <h2>Usage</h2>
                 <p>Here's a quick example of how to use this project:</p>
+                <p>Invite your Bot with following:</p>
+                <pre><code>https://discord.com/oauth2/authorize?client_id=YOUR-BOT-APPLICATION-ID&scope=bot+applications.commands&permissions=8</code></pre>
+                <br>
                 <pre><code>!help</code></pre>
                 <p>Response:</p>
                 <img src="src/assets/help_command.png" height="500px"></img>
@@ -361,6 +366,28 @@ PROTECTED_USERS = [702893526303637604, 1337787532665946186]
                             </ul>
                         </ul>
                     </li>
+                    <li class="list"><strong>🐛 Slash Commands</strong>
+                        <ul>
+                            <li>Commands:</li>
+                            <ul class="command-list">
+                                <li>/ping</li>
+                                <li>/say</li>
+                                <li>/userinfo <@user></li>
+                                <li>/serverinfo</li>
+                                <li>/help</li>
+                                <li>/monthly</li>
+                            </ul>
+                            <li>Functions:</li>
+                            <ul class="command-list">
+                                <li>help_command</li>
+                                <li>serverinfo</li>
+                                <li>userinfo</li>
+                                <li>say</li>
+                                <li>ping</li>
+                                <li>monthly</li>
+                            </ul>
+                        </ul>
+                    </li>
                 </ul>
             </section>
             
@@ -375,6 +402,7 @@ PROTECTED_USERS = [702893526303637604, 1337787532665946186]
                         <p><strong>👋 Welcome System</strong></p>
                         <p><strong>🔧 Utility</strong></p>
                         <p><strong>🐛 Admin / Teststuff</strong></p>
+                        <p><strong>🐛 Anti-Scam Detection</strong></p>
                     </div>
                     <div class="feature-category">
                         <h3>Optional Features</h3>
@@ -382,8 +410,8 @@ PROTECTED_USERS = [702893526303637604, 1337787532665946186]
                         <p><strong>⭐ XP & Levels</strong></p>
                         <p><strong>🎮 Fun & Games</strong></p>
                         <p><strong>🎭 Reaction Roles</strong></p>
-                        <p><strong>🐛 Anti-Scam Detection</strong></p>
                         <p><strong>🐛 Games</strong></p>
+                        <p><strong>🐛 Slash</strong></p>
                     </div>
                     <div class="contact-info">
                         <p>Contact me via Discord: <a href="https://discord.com/users/702893526303637604" target="_blank">Tamino1230</a> or join my <a href="https://discord.gg/8b8R9qCBF8" target="_blank">Discord Server</a> to discuss your requirements.</p>
@@ -472,6 +500,38 @@ PROTECTED_USERS = [702893526303637604, 1337787532665946186]
                     <p>Event: <code>Member join</code></p>
                     <p>Response:</p>
                     <img src="src/assets/welcome.png" alt="Welcome Command Example" height="300px">
+                </div>
+            </section>
+
+            <section id="active-developer-badge">
+                <h2>Active Developer Badge</h2>
+                <div class="container" style="display: flex;">
+                    <img src="src/assets/active-developer-badge.png" height="100px">
+                    <p class="badge-text">Active Developer Badge</p>
+                </div>
+                <div class="container" style="margin-top: -50px">
+                    <p>If you want the <b>Active-Developer-Badge</b> you can go to: <a href="https://discord.com/developers/active-developer">Claim Badge</a> if you ran a slash command on a discord application in the last 30 days you will be eligible to claim the badge</p>
+                    <img src="src/assets/claim-badge.png" width="90%">
+                </div>
+            </section>
+
+            <section id="slashcommands">
+                <h2>Slash Commands</h2>
+                <div>
+                    <p>You will be able to run <strong>/monthly</strong> (or any other / command) to run every month once</p>
+                    <img src="src/assets/monthly.png" height="200px">
+                    
+                </div>
+                <div>
+                    <p<><strong>All Slash Commands:</strong></p>
+                    <ul style="margin-left: 40px;">
+                        <li>/monthly</li>
+                        <li>/help</li>
+                        <li>/ping</li>
+                        <li>/say</li>
+                        <li>/serverinfo</li>
+                        <li>/userinfo <@user></li>
+                    </ul>
                 </div>
             </section>
 
